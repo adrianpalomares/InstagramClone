@@ -48,6 +48,19 @@ class Login extends React.Component {
                 window.localStorage.setItem("accessToken", accessToken);
                 window.localStorage.setItem("refreshToken", refreshToken);
 
+                // Grab User ID from token
+                const tokens = accessToken.split(".");
+                const tokenPayload = tokens[1];
+                const tokenPayloadDecoded = atob(tokenPayload);
+                const tokenPayloadObject = JSON.parse(tokenPayloadDecoded);
+
+                // Add user id to App.js state
+                this.props.setUserId(tokenPayloadObject.user_id);
+                window.localStorage.setItem(
+                    "user_id",
+                    tokenPayloadObject.user_id
+                );
+
                 // Set app logged in state to true
                 // State from App.js
                 this.props.logUserInOut(true);

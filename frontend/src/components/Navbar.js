@@ -21,13 +21,16 @@ class Navbar extends React.Component {
                             Profile
                         </Link>
                     </li>
-
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/upload">
+                            Upload
+                        </Link>
+                    </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/logout">
                             Log Out
                         </Link>
                     </li>
-                    
                 </ul>
             );
         } else {
@@ -38,7 +41,7 @@ class Navbar extends React.Component {
                             Home
                         </Link>
                     </li>
-    
+
                     <li className="nav-item">
                         <Link className="nav-link" to="/register">
                             Register

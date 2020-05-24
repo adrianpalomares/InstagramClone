@@ -14,12 +14,11 @@ class LatestPosts extends React.Component {
             <React.Fragment>
                 {this.props.listOfPosts.map((postObject, index) => {
                     return (
-                        <div key={index} className="card col-4 mt-4">
+                        <div key={index} className="card col-4 mt-4 w-75">
                             <img
-                                className="card-img-top img-fluid image-responsive"
+                                className="card-img-top"
                                 src={postObject.img}
                                 alt="Card image cap"
-                                
                             />
                             <div className="card-body">
                                 {/* <h5 class="card-title">Card title</h5> */}
@@ -32,7 +31,7 @@ class LatestPosts extends React.Component {
                             </div>
                         </div>
                     );
-                })}{" "}
+                })}
             </React.Fragment>
         );
     }

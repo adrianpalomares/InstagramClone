@@ -9,6 +9,7 @@ class Home extends React.Component {
     }
 
     componentDidMount() {
+        
         // Get the latest posts
         axios({
             method: "GET",
