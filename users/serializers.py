@@ -1,3 +1,4 @@
+from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from django.contrib.auth.models import User
 from rest_framework import serializers
 
@@ -22,3 +23,19 @@ class UserSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+
+
+# For JWT
+
+
+class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
+    def validate(self, attrs):
+        data = super().validate(attrs)
+        refresh = self.get_token(self.user)
+        data['refresh'] = str(refresh)
+        data['access'] = str(refresh.access_token)
+
+        # Extra responses
+        data['userId'] = self.user.id
+
+        return data

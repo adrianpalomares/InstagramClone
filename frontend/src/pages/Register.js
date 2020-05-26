@@ -94,7 +94,11 @@ class Register extends React.Component {
                 }
             })
             .catch((error) => {
-                console.log(error);
+                console.log(Object.entries(error));
+                const errorText = JSON.parse(error.request.responseText);
+                console.log(Object.values(errorText)[0][0])
+                
+                // console.log(JSON.parse(error.request.responseText));
             });
 
         event.preventDefault();

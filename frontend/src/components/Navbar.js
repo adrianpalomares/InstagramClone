@@ -1,11 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { isUserLoggedIn, isLoggedIn } from "../actions/authActions";
 
 class Navbar extends React.Component {
     constructor(props) {
         super(props);
     }
 
+    componentDidMount() {
+        // This function updates isLoggedIn boolean
+        this.props.isUserLoggedIn();
+    }
     renderContent() {
         if (this.props.isLoggedIn) {
             return (
@@ -62,4 +68,8 @@ class Navbar extends React.Component {
     }
 }
 
-export default Navbar;
+const mapStateToProps = (state) => ({
+    isUserLoggedIn: state.auth.isUserLoggedIn,
+    isLoggedIn: state.auth.isLoggedIn,
+});
+export default connect(mapStateToProps, { isUserLoggedIn })(Navbar);

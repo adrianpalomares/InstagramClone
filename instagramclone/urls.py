@@ -19,8 +19,11 @@ from rest_framework import routers
 from django.conf.urls.static import static
 from django.conf import settings
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView, TokenRefreshView,)
+# from rest_framework_simplejwt.views import (
+#     TokenObtainPairView, TokenRefreshView,)
+from rest_framework_simplejwt.views import TokenRefreshView
+
+
 
 from posts import views as post_views
 from frontend import views as frontend_views
@@ -34,7 +37,7 @@ urlpatterns = router.urls
 urlpatterns += [
     path('api/posts/latest', post_views.LatestPostList.as_view(), name="latest-posts"),
     path('api/register/', user_views.CreateUserView.as_view(), name="register-user"),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/', user_views.MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('admin/', admin.site.urls),
     # path('', include('frontend.urls')),
