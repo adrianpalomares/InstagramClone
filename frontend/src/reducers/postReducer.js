@@ -22,12 +22,13 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 uploadStatus: action.payload.uploadStatus,
-                items: items.concat(action.payload.newPost),
+                // items: state.items.concat(action.payload.newPost),
+                items: [...state.items, action.payload.newPost],
             };
         case UPLOAD_FAILURE:
             return {
                 ...state,
-                uploadStatus: false,
+                uploadStatus: action.payload.uploadStatus,
             };
         default:
             return state;

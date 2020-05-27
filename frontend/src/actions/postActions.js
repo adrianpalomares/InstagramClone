@@ -21,7 +21,7 @@ export function uploadPost(userId, file, caption) {
     return function (dispatch) {
         Axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
         Axios.defaults.xsrfCookieName = "csrftoken";
-        console.log(userId, file, caption);
+        // console.log(userId, file, caption);
 
         const formData = new FormData();
         formData.append("user", userId);
@@ -35,6 +35,7 @@ export function uploadPost(userId, file, caption) {
             },
         })
             .then((response) => {
+                console.log(response);
                 console.log(response.data);
                 // Dispatch
                 dispatch({
@@ -43,10 +44,11 @@ export function uploadPost(userId, file, caption) {
                 });
             })
             .catch((error) => {
-                console.log(JSON.parse(error));
+                // console.log(JSON.parse(error));
+                console.log("Error from uploadPost()", typeof error, error);
                 dispatch({
                     type: UPLOAD_FAILURE,
-                    payload: { uploadStatus: false },
+                    payload: { uploadStatus: 999 },
                 });
             });
     };

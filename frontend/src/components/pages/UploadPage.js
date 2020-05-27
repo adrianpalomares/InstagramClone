@@ -4,6 +4,9 @@ import { uploadPost } from "../../actions/postActions";
 import PropTypes from "prop-types";
 import { Redirect } from "react-router-dom";
 
+// TODO: A way to change to button loading while waiting for response
+// And redirect when uploadStatus becomes 201
+
 class UploadPage extends React.Component {
     constructor(props) {
         super(props);
