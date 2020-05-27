@@ -51,7 +51,7 @@ class UploadPage extends React.Component {
             return (
                 <div className="container">
                     <form onSubmit={this.onSubmit}>
-                        <h1>Upload Post</h1>
+                        <h1 className="mb-4">Upload Post</h1>
                         <input
                             className="form-control-file"
                             id="fileInput"

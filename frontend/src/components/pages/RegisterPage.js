@@ -46,7 +46,7 @@ class RegisterPage extends React.Component {
     renderContent(errorMessage = "") {
         return (
             <div className="container">
-                <h1 className="mb-4">Register</h1>
+                <h1 className="mb-4 ">Register</h1>
                 <form onSubmit={this.onSubmit}>
                     {/* Email Input */}
                     <div className="form-group">
